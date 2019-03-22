@@ -1,7 +1,7 @@
 import numpy as np
 
 class optimizer:
-    def __init__(self, function, lb, ub, omega, phi_r, phi_g, swarm_size = 100,
+    def __init__(self, function, lb, ub, omega = 0.5, phi_r = 0.5, phi_g = 0.5, swarm_size = 100,
             max_iterations = 100, min_variation = 1e-8, debug = False):
         self.function = function
         self.lb = np.array(lb)

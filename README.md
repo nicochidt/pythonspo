@@ -1,0 +1,2 @@
+Simple swarm particle optimizer 
+

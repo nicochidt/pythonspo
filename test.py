@@ -47,13 +47,14 @@ def crossintray(x):
 
 args = {
         'swarm_size': SWARM_SIZE,
+        'max_iterations': ITERATIONS,
         'function': ackley,
-        'lb': [ -10,-10],
-        'ub': [10,10],
+        'lb': [ -10,-10],  # lower bond for search space
+        'ub': [10,10],     # upper bond for search space
         'omega': 0.5,
         'phi_r': 0.5,
         'phi_g': 0.5,
-        'debug': True
+        'debug': False   # if True best position and value of each iteration is printed
      }
 
 opt = spo.optimizer(**args)

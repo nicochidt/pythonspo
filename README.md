@@ -2,7 +2,7 @@ Simple swarm particle optimizer
 
 Ussage: 
 
-```
+```python
 import spo
 import numpy as np 
 
@@ -18,7 +18,7 @@ x, fx = opt.run()
 
 Other values of the algorithm can be specified: 
 
-```
+```python
 args = {
          'swarm_size': 50,
          'max_iterations': 100,

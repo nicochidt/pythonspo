@@ -16,6 +16,9 @@ class optimizer:
         self.init_swarm()
 
     def init_swarm(self):
+        assert( self.lb.shape == self.ub.shape), "Dimension missmatch between upper and lower bounds"
+        assert np.all( self.lb < self.ub), "Lower bound must be lower than upper bound for all coordinates"
+        assert callable(self.function), "Function %s is not callable" % self.function
         D = len(self.lb)
         self.D = D
         S = self.size

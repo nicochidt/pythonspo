@@ -2,7 +2,7 @@ import numpy as np
 
 class optimizer:
     def __init__(self, function, lb, ub, omega = 0.5, phi_r = 0.5, phi_g = 0.5, swarm_size = 100,
-            max_iterations = 100, min_variation = 1e-8, debug = False):
+            max_iterations = 100, min_variation = 1e-10, debug = False):
         self.function = function
         self.lb = np.array(lb)
         self.ub = np.array(ub)
@@ -66,8 +66,8 @@ class optimizer:
             best= self.best_fx
             self.do_one_iteration()
             if self.debug:
-                print "[+] Best particle in iteration %d: %s with value %f" %(i, self.best_x, self.best_fx)
+                print ("[+] Best particle in iteration %d: %s with value %f" %(i, self.best_x, self.best_fx))
             if np.abs( best - self.best_fx) < self.minv:
-                print "[+] Stopping because no variation since last minimum"
+                print ("[+] Stopping because no variation since last minimum")
                 break;
         return self.best_x, self.best_fx

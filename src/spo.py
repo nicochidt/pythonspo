@@ -2,7 +2,7 @@ import numpy as np
 
 class optimizer:
     def __init__(self, function, lb, ub, omega = 0.5, phi_r = 0.5, phi_g = 0.5, swarm_size = 100,
-            max_iterations = 100, min_variation = 1e-10, debug = False):
+            max_iterations = 100, min_variation = 1e-10, debug = False, history = False):
         self.function = function
         self.lb = np.array(lb)
         self.ub = np.array(ub)
@@ -13,6 +13,8 @@ class optimizer:
         self.iterations = max_iterations
         self.minv = min_variation
         self.debug = debug
+        self.save_history = history
+        self.history = []
         self.init_swarm()
 
     def init_swarm(self):
@@ -29,6 +31,9 @@ class optimizer:
 
         self.best_x = self.x[i_min,:].copy()
         self.best_fx = self.function(self.best_x)
+
+        if self.save_history:
+             self.history.append(self.best_x.copy())
 
         dv = np.abs(self.ub - self.lb)
         self.v = np.random.uniform( -dv, dv, size = (S,D))
@@ -59,6 +64,15 @@ class optimizer:
 
         self.best_x = self.x[i_min,:].copy()
         self.best_fx = fx[i_min]
+
+        if self.save_history:
+             self.history.append(self.best_x.copy())
+
+    def get_history(self):
+        if not self.save_history:
+            print ("[!!] No history was saved. Re run optimizer with history = True argument")
+        return self.history
+
 
     def run(self):
 

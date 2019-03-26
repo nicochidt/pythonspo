@@ -43,6 +43,12 @@ class optimizer:
         self.v = self.v * self.omega + rp * self.phi_r * ( self.pbest - self.x) + rg * self.phi_g * (self.best_x - self.x)
         self.x = self.x + self.v
 
+        # check boundaries
+        lb = self.x < self.lb
+        ub = self.x > self.ub
+
+        self.x = self.x * (~(lb + ub)) + lb * self.lb + ub * self.ub
+
         fx = np.apply_along_axis(self.function, 1, self.x)
         idx = np.logical_and((fx < self.pbestfx), fx)
 

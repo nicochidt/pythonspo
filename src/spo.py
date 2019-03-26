@@ -24,7 +24,7 @@ class optimizer:
         S = self.size
         self.x = np.random.uniform( self.lb, self.ub, size = (S,D) )
 
-        fx = inp.apply_along_axis(self.function, 1, self.x)
+        fx = np.apply_along_axis(self.function, 1, self.x)
         i_min = np.argmin(fx)
 
         self.best_x = self.x[i_min,:].copy()

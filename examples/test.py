@@ -1,7 +1,7 @@
 import spo
 import numpy as np
 
-SWARM_SIZE = 100
+SWARM_SIZE = 200
 ITERATIONS = 100
 
 # Let's define some test functions
@@ -48,6 +48,22 @@ def crossintray(x):
     x = x[0]
     return -0.0001 * (np.abs(np.sin(x) * np.sin(y) * np.exp(np.abs(100 - np.sqrt(x**2 + y **2) / np.pi))) + 1 ) ** 0.1
 
+def beale(x):
+    # https://en.wikipedia.org/wiki/Test_functions_for_optimization
+    # min f(3, 0.5) = 0
+    # search space -4.5 < x,y < 4.5
+    y = x[1]
+    x = x[0]
+    return (1.5 - x + x*y) ** 2 + (2.25 -x + x*(y**2)) ** 2 + (2.625 - x + x* (y**3) ) ** 2
+
+def thcf(x):
+    # three hump camel function
+    # https://en.wikipedia.org/wiki/Test_functions_for_optimization
+    # min f(0,0) = 0
+    # search space -5 < x,y < 5
+    y = x[1]
+    x = x[0]
+    return 2 * x**2 - 1.05 * x **4 + x **6 / 6. + x*y + y**2
 
 functions = {
         'rastrigin': {
@@ -84,6 +100,20 @@ functions = {
             'ub': [10,10],
             'min': [(1.34941,1.34941), (-1.34941,1.34941), (1.34941,-1.34941), (-1.34941,-1.34941)],
             'fmin': [ -2.06261, -2.06261, -2.06261, -2.06261]
+            },
+        'beale': {
+            'f': beale,
+            'lb': [-4.5, -4.5],
+            'ub': [4.5, 4.5],
+            'min': [ 3, 0.5 ],
+            'fmin': 0
+            },
+        'three-hump-cf': {
+            'f': thcf,
+            'lb': [ -5, -5],
+            'ub': [5, 5],
+            'min': [0,0],
+            'fmin': 0
             }
         }
 

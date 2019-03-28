@@ -25,6 +25,7 @@ class optimizer:
         self.D = D
         S = self.size
         self.x = np.random.uniform( self.lb, self.ub, size = (S,D) )
+        self.check_boundaries()
 
         fx = np.apply_along_axis(self.function, 1, self.x)
         i_min = np.argmin(fx)
@@ -40,6 +41,13 @@ class optimizer:
         self.pbest = np.zeros_like(self.x)
         self.pbestfx = np.apply_along_axis(self.function, 1, self.x)
 
+    def check_boundaries(self):
+        # check boundaries
+        lb = self.x < self.lb
+        ub = self.x > self.ub
+
+        self.x = self.x * (~(lb + ub)) + lb * self.lb + ub * self.ub
+
     def do_one_iteration(self):
 
         rp = np.random.uniform(0, 1, size = (self.size, self.D) )
@@ -48,11 +56,7 @@ class optimizer:
         self.v = self.v * self.omega + rp * self.phi_r * ( self.pbest - self.x) + rg * self.phi_g * (self.best_x - self.x)
         self.x = self.x + self.v
 
-        # check boundaries
-        lb = self.x < self.lb
-        ub = self.x > self.ub
-
-        self.x = self.x * (~(lb + ub)) + lb * self.lb + ub * self.ub
+        self.check_boundaries()
 
         fx = np.apply_along_axis(self.function, 1, self.x)
         idx = np.logical_and((fx < self.pbestfx), fx)

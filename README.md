@@ -3,7 +3,7 @@ Simple swarm particle optimizer
 Ussage: 
 
 ```python
-import spo
+import pso
 import numpy as np 
 
 def example_function(x): 
@@ -12,7 +12,7 @@ def example_function(x):
 lb = [ -5, -5, -5] # lower bound of search space 
 ub = [ 5, 5, 5]    # upper bound of search space
 
-opt = spo.optimizer( example_function, lb, ub)
+opt = pso.optimizer( example_function, lb, ub)
 x, fx = opt.run()
 ```
 
@@ -30,7 +30,7 @@ args = {
          'phi_g': 0.5,
          'debug': False   
       }
-opt = spo.optimizer(**args)
+opt = pso.optimizer(**args)
 x,fx = opt.run()
 ```
 

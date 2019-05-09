@@ -1,4 +1,4 @@
-import pso
+import spso
 import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.animation as animation
@@ -16,7 +16,7 @@ args = {
             'history': True
         }
 
-opt = pso.optimizer(**args)
+opt = spso.optimizer(**args)
 x, fx = opt.run()
 history = opt.get_history()
 

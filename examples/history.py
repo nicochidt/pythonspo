@@ -1,4 +1,4 @@
-import pso
+import spso
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -12,7 +12,7 @@ args = {
             'history': True
         }
 
-opt = pso.optimizer(**args)
+opt = spso.optimizer(**args)
 x, fx = opt.run()
 history = opt.get_history()
 

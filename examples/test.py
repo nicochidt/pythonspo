@@ -1,4 +1,4 @@
-import pso
+import spso
 from test_functions.functions import *
 import numpy as np
 
@@ -72,7 +72,7 @@ for k,v in functions.iteritems():
         'debug': False   # if True best position and value of each iteration is printed
      }
     print "[+] Optimizing function %s" % k
-    opt = pso.optimizer(**args)
+    opt = spso.optimizer(**args)
     x, fx = opt.run()
     print "[+] Algorithm returned %s with value %f" % ( x, fx)
     print "[+] Function minimum is at %s with value %s" % (v['min'], v['fmin'])

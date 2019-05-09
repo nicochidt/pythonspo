@@ -1,9 +1,9 @@
-Simple swarm particle optimizer 
+[Simple particle swarm optimizer](https://en.wikipedia.org/wiki/Particle_swarm_optimization)
 
 Ussage: 
 
 ```python
-import pso
+import spso
 import numpy as np 
 
 def example_function(x): 
@@ -12,7 +12,7 @@ def example_function(x):
 lb = [ -5, -5, -5] # lower bound of search space 
 ub = [ 5, 5, 5]    # upper bound of search space
 
-opt = pso.optimizer( example_function, lb, ub)
+opt = spso.optimizer( example_function, lb, ub)
 x, fx = opt.run()
 ```
 

@@ -3,7 +3,10 @@
 
 Installation 
 
-``` pip3 install spo ```
+```
+pip3 install -r requirements.txt
+pip3 install spo 
+```
 
 
 Ussage: 

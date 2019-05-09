@@ -9,7 +9,8 @@ read NEW_VERSION
 echo "Creating version $NEW_VERSION ...\n"
 
 echo "Patching ${VERSION_FILE} ..."
-sed -i "s/$CURRENT_VERSION/$NEW_VERSION/g" "${VERSION_FILE}"
+sed -i.k "s/$CURRENT_VERSION/$NEW_VERSION/g" "${VERSION_FILE}"
+rm ${VERSION_FILE}.k
 git add "${VERSION_FILE}"
 
 git commit -m "Releasing v$NEW_VERSION"
@@ -19,4 +20,4 @@ git tag -a v$NEW_VERSION -m "Release v$NEW_VERSION"
 git push origin v$NEW_VERSION
 
 echo
-echo "All done, v$NEW_VERSION released ^_^"
+echo "Done, v$NEW_VERSION released"

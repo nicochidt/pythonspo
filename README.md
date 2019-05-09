@@ -1,9 +1,15 @@
 [Simple particle swarm optimizer](https://en.wikipedia.org/wiki/Particle_swarm_optimization)
 
+
+Installation 
+
+``` pip3 install spo ```
+
+
 Ussage: 
 
 ```python
-import spso
+import spso.spso
 import numpy as np 
 
 def example_function(x): 

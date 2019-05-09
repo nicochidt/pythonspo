@@ -1,5 +1,5 @@
 from setuptools import setup, find_packages
-from pso.version import __version__, __author__, __email__, __license__
+from spso.version import __version__, __author__, __email__, __license__
 import os
 
 desc = "Simple particle swarm optimizer in python"

@@ -1,22 +1,24 @@
-import spo
+import pso
 import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.animation as animation
 from matplotlib.lines import Line2D
+plt.style.use('ggplot')
+
 # this module contains several functions to test optimizers
 from test_functions import functions
 
+
 args = {
-            'function': functions.crossintray,
+            'function': functions.beale,
             'lb': [-10, -10],
             'ub': [10, 10],
             'history': True
         }
 
-opt = spo.optimizer(**args)
+opt = pso.optimizer(**args)
 x, fx = opt.run()
 history = opt.get_history()
-
 
 fig, ax = plt.subplots(nrows = 1)
 def create_image(x, y, values, p):

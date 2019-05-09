@@ -3,5 +3,5 @@ __email__     = 'nico.chiaraviglio@gmail.com'
 __copyright__ = 'Copyright 2019, Nicolás Chiaraviglio'
 __credits__   = []
 __license__   = 'GPL'
-__version__   = '1.0.1'
+__version__   = '1.0.2'
 __status__    = 'Production'

@@ -21,7 +21,7 @@ def example_function(x):
 lb = [ -5, -5, -5] # lower bound of search space 
 ub = [ 5, 5, 5]    # upper bound of search space
 
-opt = spso.optimizer( example_function, lb, ub)
+opt = optimizer( example_function, lb, ub)
 x, fx = opt.run()
 ```
 

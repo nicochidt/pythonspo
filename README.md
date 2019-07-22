@@ -12,7 +12,7 @@ pip3 install spo
 Ussage: 
 
 ```python
-import spso.spso
+from spso.spso import optimizer
 import numpy as np 
 
 def example_function(x): 
